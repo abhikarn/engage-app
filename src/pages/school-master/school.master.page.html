@@ -1,0 +1,182 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{'School Master Creation' }}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="forms-validations-content">
+    <section class="form-section">
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'School Name' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.schoolName" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'School House Number' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.houseNumber" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'School House Street' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.street" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'School House Area' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.area" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'LGA' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.lGA" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'City' }}</ion-label>
+                    <ion-select [(ngModel)]="school.cityId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
+                        <ion-option *ngFor="let option of masters.CityNewMaster" [value]="option.id">{{ option.name }}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'State' }}</ion-label>
+                    <ion-select [(ngModel)]="school.stateId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
+                        <ion-option *ngFor="let option of masters.StateMaster" [value]="option.id">{{ option.name }}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'Country' }}</ion-label>
+                    <ion-select [(ngModel)]="school.countryId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
+                        <ion-option *ngFor="let option of masters.CountryMaster" [value]="option.id">{{ option.name }}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'Landmark' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.landMark" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col>
+                <ion-item>
+                    <ion-label floating>{{'GeoLocation' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.geoCoordinate" required></ion-input>
+                    <ion-icon name="navigate" item-right (click) ="getLocation()"></ion-icon>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Priciple Name' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.principalName" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Principle Phone Number' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.phoneNumber" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'School Type' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.schoolType" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'School Phone Number' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.schoolPhoneNumber" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Total Population' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.totalPopulation" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Total Education Level' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.totalEducationlevel" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Nursary To Primary Population' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.nursaryToPrimary3Population" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Principal Content' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.principalConcent" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label>Singage Available</ion-label>
+                    <ion-checkbox [(ngModel)]="school.singageAvailable"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Signage Status' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.signageStatus" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding class="multi-input-row">
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label>If Bad</ion-label>
+                    <ion-checkbox [(ngModel)]="school.ifBad"></ion-checkbox>
+                </ion-item>
+            </ion-col>
+            <ion-col width-50>
+                <ion-item>
+                    <ion-label floating>{{'Class Room Corex' }}</ion-label>
+                    <ion-input type="text" [(ngModel)]="school.classRoomCorex" class="form-controll" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </section>
+    <button style="background-color: #fc0704 !important;"  ion-button full type="button">{{'Save'}}</button>
+    <button style="background-color: #fc0704 !important;"  ion-button full type="button">{{'Cancel'}}</button>
+
+</ion-content>

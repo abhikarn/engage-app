@@ -1,0 +1,157 @@
+page-home {
+    @import "../../../node_modules/font-awesome/scss/font-awesome";
+    @import "../../../node_modules/bootstrap/scss/bootstrap";
+    $red-color: #fc0704;
+    $dark-blue:#032b42;
+    $dark-red-color: #89060c;
+    $medium-light-blue:#007dc3;
+    $yellow-color: #fcc61e;
+    $white-color: #fff;
+    * {
+        margin: 0;
+    }
+    
+    @font-face {
+        font-family: 'roboto';
+        src: url('/assets/fonts/Roboto-Regular.eot');
+        /* IE9 Compat Modes */
+        src: url('/assets/fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/assets/fonts/Roboto-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/assets/fonts/Roboto-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+        url('/assets/fonts/Roboto-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        url('/assets/fonts/Roboto-Regular.svg#svgFontName') format('svg');
+        /* Legacy iOS */
+    }
+    
+    .wrapper-container {
+        background-color: $red-color;
+        min-height: 100%;
+        width: 100%;
+        max-width: 670px;
+        margin: 0px auto;
+        font-family: 'roboto', 'helvetica', 'Segoe UI';
+        font-size: 16px;
+        color: $white-color;
+    }
+    
+    .logo-wrapper {
+        img {
+            margin: 10px auto;
+            max-width: 120px;
+        }
+    }
+    
+    .text-container {}
+    
+    .text-header {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    
+    .site-header {
+        background-color:   $dark-red-color;
+        padding: 10px 0px;
+        margin-bottom: 40px;
+        .site-head {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .site-subheader {
+            margin: 2px auto 10px;
+        }
+        .site-text {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+    }
+    
+    .site-container {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: rgba($dark-red-color, 0.2);
+        .site-container-inner {
+            max-height: 500px;
+            overflow: auto;
+        }
+    }
+    
+    :host ::ng-deep .card {
+        text-align: left;
+        margin-bottom: 10px;
+        border: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .card-header {
+            background-color: $white-color;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $dark-red-color;
+            border-radius: 0;
+            border: 0;
+            position: relative;
+            a {
+                color: $dark-red-color;
+                font-size: 18px;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &::before {
+                content: '';
+                width: 5px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: absolute;
+                background-color: $dark-red-color;
+            }
+            &:active,
+            &.active {
+                border-radius: 0;
+                background-color: $yellow-color;
+            }
+        }
+        .card-body {
+            background-color: rgba($dark-red-color, 0.85);
+        }
+    }
+
+    .list-mini-content
+	{
+		background-color: color($dark-red-color);
+
+		.list-mini
+		{
+			// @include layout-list-styles($theme-color-2, $white-d);
+
+			ion-list {
+				.list-item
+				{
+					.content-row
+					{
+						.item-title{
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+						}
+
+						&.one-line
+						{
+							align-items:center;
+
+							.item-description
+							{
+								overflow: hidden;
+								text-overflow: ellipsis;
+                                white-space: nowrap;
+                                text-align: left;
+                                color: white;
+                            }
+						}
+					}
+				}
+			}
+		}
+	}
+}
