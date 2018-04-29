@@ -1,12 +1,13 @@
 // Common list styles can be found in "./common.styles/layouts/lists"
 list-2-page {
 	ion-header {
-		// @include header-styles(color($colors, header-alt, base), color($colors, header-alt, contrast));
+		@include header-styles(color($colors, header, base), color($colors, header, contrast));
+		background-color: color($colors, header, base);
 	}
 
 	.list-mini-content
 	{
-		background-color: color($colors, header, base);
+		background-color: color($colors, walkthrough-header, base);
 
 		.list-mini
 		{

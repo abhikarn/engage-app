@@ -31,22 +31,28 @@ export class SchoolProvider {
     }
 
     saveSchool(school: School) {
-        this.getAllSchool().then(data => {
-            const schools: School[] = data;
-            school.schoolId = schools.length + 1;
-            schools.push(school);
-            this.storage.set(STORAGE_KEY, schools);
+        return new Promise<number>((resolve) => {
+            this.getAllSchool().then(data => {
+                const schools: School[] = data;
+                school.schoolId = schools.length + 1;
+                schools.push(school);
+                this.storage.set(STORAGE_KEY, schools);
+                resolve(school.schoolId);
+            });
         });
     }
 
     updateSchool(school: School) {
-        this.getAllSchool().then(data => {
-            const schools: School[] = data;
-            let index = schools.findIndex(item => item.schoolId === school.schoolId);
-            if (index > -1) {
-                schools[index] = school;
-            }
-            this.storage.set(STORAGE_KEY, schools);
+        return new Promise<number>((resolve) => {
+            this.getAllSchool().then(data => {
+                const schools: School[] = data;
+                let index = schools.findIndex(item => item.schoolId === school.schoolId);
+                if (index > -1) {
+                    schools[index] = school;
+                }
+                this.storage.set(STORAGE_KEY, schools);
+                resolve(school.schoolId);
+            });
         });
     }
 }

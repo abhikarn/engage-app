@@ -29,12 +29,6 @@ export class List2Page {
 
   ionViewDidLoad() {
     this.getSchool();
-    // this.list2Service
-    //   .getData()
-    //   .then(data => {
-    //     this.list2.items = data.items;
-    //     this.loading.dismiss();
-    //   });
   }
 
   goToSchool(school) {
@@ -47,9 +41,10 @@ export class List2Page {
       this.list2.items = school;
       this.loading.dismiss();
     });
-    // this.storage.get('school').then(data => {
-    //   this.list2.items = data;
-    // });
+  }
+
+  goToSchoolCreation() {
+    this.nav.push(SchoolMasterPage);
   }
 }
 

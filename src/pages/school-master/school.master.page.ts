@@ -91,10 +91,17 @@ export class SchoolMasterPage implements OnInit {
     }
 
     saveSchool() {
+        this.loading.present();
         if (this.editMode) {
-            this.schoolProvider.updateSchool(this.school);
+            this.schoolProvider.updateSchool(this.school).then((id) => {
+                this.loading.dismiss();
+                this.navCtrl.push(List2Page);
+            });
         } else {
-            this.schoolProvider.saveSchool(this.school);
+            this.schoolProvider.saveSchool(this.school).then((id) => {
+                this.loading.dismiss();
+                this.navCtrl.push(List2Page);
+            });
         }
     }
 

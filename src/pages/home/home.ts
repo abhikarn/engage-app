@@ -31,7 +31,7 @@ export class HomePage {
 
   navigate(page) {
     if (page.path === 'school') {
-      this.navCtrl.push(SchoolMasterPage);
+      this.navCtrl.push(List2Page);
     } else {
       alert(page.name);
     }

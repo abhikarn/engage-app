@@ -1,11 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{ 'School Master List'}}</ion-title>
+
   </ion-navbar>
+  <button ion-button style="background-color: #89060c !important;float: right;" (click)="goToSchoolCreation()">
+    Add School
+  </button>
 </ion-header>
 
 <ion-content class="list-mini-content">
+
   <div class="list-mini">
+    <!-- <button *ngIf="!!list2.items" ion-button style="background-color: #89060c !important;" (click)="goToSchoolCreation()">
+      Add School
+    </button> -->
     <ion-list>
       <button class="list-item" ion-item *ngFor="let item of list2.items" (click)="goToSchool(item)">
         <ion-row no-padding class="content-row one-line">
