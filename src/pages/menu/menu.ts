@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuController, App, Nav, Platform } from 'ionic-angular';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
 // import { TabsPage } from '../tabs/tabs';
 
@@ -30,9 +28,9 @@ export class MenuPage {
         // ];
         alert('ok');
         this.pages = [
-            { title: 'Home', icon: 'grid', component: HomePage },
-            { title: 'Contact', icon: 'settings', component: ContactPage },
-            { title: 'About', icon: 'logo-wordpress', component: AboutPage },
+            { title: 'Home', icon: 'grid', component: HomePage }
+            // { title: 'Contact', icon: 'settings', component: ContactPage },
+            // { title: 'About', icon: 'logo-wordpress', component: AboutPage },
         ];
     }
 

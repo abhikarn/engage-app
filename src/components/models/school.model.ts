@@ -2,6 +2,8 @@ export interface School {
     schoolId?: number;
     schoolName?: string;
     houseNumber?: string;
+    schoolImageName?: string;
+    schoolImageUri?: any;
     street?: string;
     area?: string;
     lGA?: string;
@@ -13,6 +15,8 @@ export interface School {
     countryName?: string;
     landMark?: string;
     geoCoordinate?: string;
+    schoolLatitudeCoordinate?: string;
+    schoolLongitudeCoordinate?: string;
     principalName?: string;
     phoneNumber?: number;
     schoolPhoneNumber?: number;

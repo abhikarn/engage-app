@@ -6,7 +6,6 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { MenuPage } from '../menu/menu';
 import { List2Page } from '../list-2/list-2';
 import { List1Page } from '../list-1/list-1';
-import { FormsPage } from '../forms/forms';
 
 @Component({
   selector: 'login-page',
@@ -20,8 +19,7 @@ export class LoginPage {
     private navController: NavController,
     public loadingCtrl: LoadingController
   ) {
-    console.log(List1Page, List2Page, FormsPage, MenuPage, List2Page);
-    this.main_page = { component: FormsPage };
+    this.main_page = { component: List1Page };
     // this.navCtrl = this.app.getActiveNav();
     this.login = new FormGroup({
       email: new FormControl('', Validators.required),

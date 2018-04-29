@@ -3,16 +3,16 @@ $list-big-description-font-size: 12px;
 
 list-1-page {
 	ion-header {
-		@include header-styles(color($colors, header-alt, base), color($colors, header-alt, contrast));
+		// @include header-styles(color($colors, header-alt, base), color($colors, header-alt, contrast));
 	}
 
 	.list-big-content
 	{
-		background-color: color($colors, background, base);
+		background-color: color($colors, header, base);
 
 		.list-big
 		{
-			@include layout-list-styles($theme-color-2, $white-d);
+			// @include layout-list-styles($theme-color-2, $white-d);
 
 			ion-list {
 				.list-item
@@ -38,10 +38,10 @@ list-1-page {
 							white-space: nowrap;
 						}
 
-						.item-description
-						{
-							@include multi-line-ellipsis($list-big-description-font-size);
-						}
+						// .item-description
+						// {
+						// 	// @include multi-line-ellipsis($list-big-description-font-size);
+						// }
 					}
 				}
 			}

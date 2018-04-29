@@ -1,17 +1,25 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank Test
-    </ion-title>
-  </ion-navbar>
-</ion-header> -->
+<ion-header>
+  <!-- <ion-navbar> -->
+  <ion-title>
+    <div class="logo-wrapper">
+      <img src="./assets/images/logo.png" alt="Logo" />
+      <!-- <ion-buttons style="background-color: red !important;" end>
+        <button ion-button icon-only style="background-color: red !important;">
+          <ion-icon class="toolbar-icon" name="log-out" style="background-color: red !important;"></ion-icon>
+        </button>
+      </ion-buttons> -->
+    </div>
+  </ion-title>
+
+  <!-- </ion-navbar> -->
+</ion-header>
 
 <ion-content style="background-color: #fc0704;" padding>
   <div class="wrapper-container">
     <div class="col-12">
-      <div class="logo-wrapper">
+      <!-- <div class="logo-wrapper">
         <img src="./assets/images/logo.png" alt="Logo" />
-      </div>
+      </div> -->
       <div class="text-container">
         <div class="row justify-content-md-center">
           <div class="col-11 text-center">
@@ -23,27 +31,12 @@
             </div>
             <div class="site-container">
               <div class="site-container-inner">
-                <div>
-                  <ion-list>
-                    <button class="btn btn-outline-warning btn-block"
-                     style="border-color: #fc0704 !important" *ngFor="let item of list2.items"
-                      (click)="navigate(item)">
-                      <ion-row no-padding class="content-row">
-                        <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
-                        <!-- <ion-col no-padding width-18 class="item-avatar">
-                          <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.image"></preload-image>
-                        </ion-col> -->
-                        <ion-col width-100 class="item-content">
-                          <!-- <h3 class="item-title">{{item.name}}</h3> -->
-                          <p class="item-description" style="padding-left:10px; color: white !important;" align="left">{{item.name}}</p>
-                        </ion-col>
-                        <!-- <ion-col width-10 class="item-icon" align="right" style="padding-left:90px !important;" >
-                          <ion-icon name="arrow-forward"></ion-icon>
-                        </ion-col> -->
-                      </ion-row>
-                    </button>
-                  </ion-list>
-                </div>
+                <ion-list>
+                  <button class="link-btn btn-xs" *ngFor="let item of list2.items" (click)="navigate(item);">
+                    {{item.name}}
+                    <i class="fa fa-angle-right" style="float: right;font-size:24px;font: bolder;"></i>
+                  </button>
+                </ion-list>
               </div>
             </div>
           </div>
