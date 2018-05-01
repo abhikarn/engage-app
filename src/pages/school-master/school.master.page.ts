@@ -5,10 +5,6 @@ import {
 } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
-import { Platform } from 'ionic-angular';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Crop } from '@ionic-native/crop';
-import { File } from '@ionic-native/file';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { List2Page } from '../list-2/list-2';
@@ -27,9 +23,9 @@ export class SchoolMasterPage implements OnInit {
     alive = true;
     loading: any;
     buttonText = 'Save';
-    constructor(private platform: Platform, public navCtrl: NavController,
+    constructor(public navCtrl: NavController,
         private geolocation: Geolocation,
-        private camera: Camera, private file: File,
+        private camera: Camera,
         public loadingCtrl: LoadingController,
         private navParams: NavParams,
         private schoolProvider: SchoolProvider,

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-
+import { Component, ViewChild } from '@angular/core';
+import {
+  NavController, LoadingController,
+  Platform, MenuController, Nav, App
+} from 'ionic-angular';
 import 'rxjs/Rx';
-
 import { List2Model } from './list-2.model';
 import { List2Service } from './list-2.service';
 import { SchoolMasterPage } from '../school-master/school.master.page';
@@ -16,15 +16,31 @@ import { SchoolProvider } from '../school-master/school.master.page-provider';
 export class List2Page {
   list2: List2Model = new List2Model();
   loading: any;
-
+  pages: Array<{ title: any, icon: string, component: any }>;
   constructor(
     public nav: NavController,
     public list2Service: List2Service,
     public loadingCtrl: LoadingController,
-    private storage: Storage,
-    private schoolProvider: SchoolProvider
+    private schoolProvider: SchoolProvider,
+    public menu: MenuController
   ) {
     this.loading = this.loadingCtrl.create();
+
+    this.pages = [
+      { title: 'Add School', icon: 'home', component: SchoolMasterPage },
+    ];
+
+  }
+
+  ionViewWillEnter() {
+    this.menu.enable(true, 'menu-right');
+  }
+
+  openPage(page) {
+    // close the menu when clicking a link from the menu
+    this.menu.close();
+    // navigate to the new page if it is not the current page
+    this.nav.setRoot(page.component);
   }
 
   ionViewDidLoad() {
@@ -45,6 +61,9 @@ export class List2Page {
 
   goToSchoolCreation() {
     this.nav.push(SchoolMasterPage);
+  }
+  checkClick() {
+    alert('ok');
   }
 }
 

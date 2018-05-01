@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // Angular components ends
 
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, IonicPageModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { GooglePlus } from '@ionic-native/google-plus';
@@ -38,6 +38,7 @@ import { ShowHideInput } from '../components/show-hide-password/show-hide-input'
 import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
+import { OnlyNumberDirective } from '../components/directives/only-number.directive';
 //custom components ends
 
 @NgModule({
@@ -56,7 +57,8 @@ import { GoogleMap } from '../components/google-map/google-map';
     ShowHideInput,
     CounterInput,
     Rating,
-    GoogleMap
+    GoogleMap,
+    OnlyNumberDirective
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { GoogleMap } from '../components/google-map/google-map';
     AngularFontAwesomeModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    IonicPageModule.forChild(List2Page),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
