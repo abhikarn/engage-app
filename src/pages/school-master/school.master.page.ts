@@ -8,6 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { List2Page } from '../list-2/list-2';
+import { MenuPage } from '../menu/menu';
 import { Masters } from '../../components/constants/master.constant';
 import { School } from '../../components/models/school.model';
 import { SchoolProvider } from './school.master.page-provider';
@@ -37,11 +38,9 @@ export class SchoolMasterPage implements OnInit {
     ngOnInit() {
         const school = this.navParams.get('param');
         if (!!school) {
-            this.loading.present();
             this.school = school;
             this.editMode = true;
             this.buttonText = 'Update';
-            this.loading.dismiss();
         }
     }
 
@@ -91,18 +90,18 @@ export class SchoolMasterPage implements OnInit {
         if (this.editMode) {
             this.schoolProvider.updateSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.navCtrl.push(List2Page);
+                this.navCtrl.push(MenuPage);
             });
         } else {
             this.schoolProvider.saveSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.navCtrl.push(List2Page);
+                this.navCtrl.setRoot(MenuPage);
             });
         }
     }
 
     goToList() {
-        this.navCtrl.push(List2Page);
+        this.navCtrl.setRoot(List2Page);
     }
 
     saveConfirm() {

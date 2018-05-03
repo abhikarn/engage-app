@@ -1,25 +1,29 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import {
   NavController, LoadingController,
-  Platform, MenuController, Nav, App
+  Platform, MenuController, Nav, App, ViewController
 } from 'ionic-angular';
 import 'rxjs/Rx';
 import { List2Model } from './list-2.model';
 import { List2Service } from './list-2.service';
 import { SchoolMasterPage } from '../school-master/school.master.page';
 import { SchoolProvider } from '../school-master/school.master.page-provider';
+import { List1Service } from '../list-1/list-1.service';
 
 @Component({
   selector: 'list-2-page',
   templateUrl: 'list-2.html'
 })
-export class List2Page {
+export class List2Page implements OnInit {
   list2: List2Model = new List2Model();
   loading: any;
   pages: Array<{ title: any, icon: string, component: any }>;
   constructor(
     public nav: NavController,
+    public appCtrl: App,
+    public viewCtrl: ViewController,
     public list2Service: List2Service,
+    public list1Service: List1Service,
     public loadingCtrl: LoadingController,
     private schoolProvider: SchoolProvider,
     public menu: MenuController
@@ -32,15 +36,8 @@ export class List2Page {
 
   }
 
-  ionViewWillEnter() {
-    this.menu.enable(true, 'menu-right');
-  }
+  ngOnInit() {
 
-  openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.menu.close();
-    // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
   }
 
   ionViewDidLoad() {
@@ -48,10 +45,10 @@ export class List2Page {
   }
 
   goToSchool(school) {
-    this.nav.push(SchoolMasterPage, { param: school });
+    this.appCtrl.getRootNav().push(SchoolMasterPage, { param: school });
   }
 
-  getSchool() {
+  private getSchool() {
     this.loading.present();
     this.schoolProvider.getAllSchool().then(school => {
       this.list2.items = school;
@@ -62,8 +59,9 @@ export class List2Page {
   goToSchoolCreation() {
     this.nav.push(SchoolMasterPage);
   }
-  checkClick() {
-    alert('ok');
+
+  checkClick(item) {
+    alert(`${item.schoolName} clicked !!`);
   }
 }
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { School } from '../../components/models/school.model';
+import { provideStorage } from '@ionic/storage/dist/storage';
 
 const STORAGE_KEY = 'school_data';
 @Injectable()
@@ -45,8 +46,9 @@ export class SchoolProvider {
     updateSchool(school: School) {
         return new Promise<number>((resolve) => {
             this.getAllSchool().then(data => {
-                const schools: School[] = data;
-                let index = schools.findIndex(item => item.schoolId === school.schoolId);
+                let schools: School[] = data;
+                this.storage.remove(STORAGE_KEY);
+                const index = schools.findIndex(item => item.schoolId === school.schoolId);
                 if (index > -1) {
                     schools[index] = school;
                 }

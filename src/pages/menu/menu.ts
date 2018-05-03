@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { MenuController, App, Nav, Platform } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { List2Page } from '../list-2/list-2';
+import { SchoolMasterPage } from '../school-master/school.master.page';
 // import { TabsPage } from '../tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -12,8 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MenuPage {
 
     pages: Array<{ title: any, icon: string, component: any }>;
-    pushPages: Array<{ title: any, icon: string, component: any }>;
-    rootPage = HomePage;
+    rootPage = List2Page;
     @ViewChild(Nav) nav: Nav;
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public menu: MenuController, public app: App) {
@@ -23,14 +24,12 @@ export class MenuPage {
             statusBar.styleDefault();
             splashScreen.hide();
         });
-        // this.pages = [
-        //     { title: 'Tab', icon: 'tab', component: TabsPage },
-        // ];
-        alert('ok');
+
+        //TODO: // Set Menu from service
         this.pages = [
-            { title: 'Home', icon: 'grid', component: HomePage }
-            // { title: 'Contact', icon: 'settings', component: ContactPage },
-            // { title: 'About', icon: 'logo-wordpress', component: AboutPage },
+            { title: 'Home', icon: 'home', component: HomePage },
+            { title: 'Add School', icon: 'school', component: SchoolMasterPage },
+            { title: 'Sync', icon: 'sync', component: null }
         ];
     }
 
@@ -38,13 +37,9 @@ export class MenuPage {
         // close the menu when clicking a link from the menu
         this.menu.close();
         // navigate to the new page if it is not the current page
-        this.nav.setRoot(page.component);
-    }
-
-    pushPage(page) {
-        // close the menu when clicking a link from the menu
-        this.menu.close();
-        // rootNav is now deprecated (since beta 11) (https://forum.ionicframework.com/t/cant-access-rootnav-after-upgrade-to-beta-11/59889)
-        this.app.getRootNav().push(page.component);
+        if (!!page.component) {
+            this.app.getRootNav().push(page.component);
+        }
     }
 }
+
