@@ -16,8 +16,8 @@
         <ion-row no-padding class="multi-input-row">
             <ion-col>
                 <ion-item>
-                    <ion-label floating>{{'School Type' }}</ion-label>
-                    <ion-select [(ngModel)]="school.schoolType" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
+                    <ion-label floating>{{'School Type'}}</ion-label>
+                    <ion-select [(ngModel)]="school.schoolType" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}" disabled ="{{formDisabled}}">
                         <ion-option *ngFor="let option of masters.SchoolTypes" [value]="option.name">{{ option.name }}</ion-option>
                     </ion-select>
                 </ion-item>
@@ -27,7 +27,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'School Name' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.schoolName" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.schoolName" disabled ="{{formDisabled}}" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
 
@@ -40,7 +40,7 @@
         <ion-row no-padding>
             <ion-col>
                 <!-- <ion-item> -->
-                <button ion-button medium style="background-color: #fc0704 !important;" (click)="getImage()">
+                <button ion-button medium style="background-color: #fc0704 !important;" (click)="getImage()" disabled ="{{buttonDisabled}}">
                     <ion-icon name="camera"></ion-icon>
                     &nbsp; &nbsp;
                     <h3 class="button-title">{{ 'Take School Photo' }}</h3>
@@ -52,13 +52,13 @@
             <ion-col width-50>
                 <ion-item>
                     <ion-label floating>{{'House Number' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.houseNumber" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.houseNumber" class="form-controll" disabled ="{{formDisabled}}" required></ion-input>
                 </ion-item>
             </ion-col>
             <ion-col width-50>
                 <ion-item>
                     <ion-label floating>{{'House Street' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.street" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.street" class="form-controll" disabled ="{{formDisabled}}" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -66,23 +66,23 @@
             <ion-col width-50>
                 <ion-item>
                     <ion-label floating>{{'House Area' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.area" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.area" class="form-controll" disabled ="{{formDisabled}}" required></ion-input>
                 </ion-item>
             </ion-col>
             <ion-col width-50>
                 <ion-item>
                     <ion-label floating>{{'LGA' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.lGA" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.lGA" class="form-controll" disabled ="{{formDisabled}}" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
 
-        <ion-row no-padding class="multi-input-row">
+        <ion-row no-padding class="multi-input-row" *ngIf="false">
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'City' }}</ion-label>
                     <ion-select [(ngModel)]="school.cityId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
-                        <ion-option *ngFor="let option of masters.CityNewMaster" [value]="option.id">{{ option.name }}</ion-option>
+                        <ion-option *ngFor="let option of masters.CityNewMaster" [value]="option.id" disabled ="{{formDisabled}}">{{ option.name }}</ion-option>
                     </ion-select>
                 </ion-item>
             </ion-col>
@@ -92,17 +92,17 @@
                 <ion-item>
                     <ion-label floating>{{'State' }}</ion-label>
                     <ion-select [(ngModel)]="school.stateId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
-                        <ion-option *ngFor="let option of masters.StateMaster" [value]="option.id">{{ option.name }}</ion-option>
+                        <ion-option *ngFor="let option of masters.StateMaster" [value]="option.id" disabled ="{{formDisabled}}">{{ option.name }}</ion-option>
                     </ion-select>
                 </ion-item>
             </ion-col>
         </ion-row>
-        <ion-row no-padding class="multi-input-row">
+        <ion-row no-padding class="multi-input-row" *ngIf="false">
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Country' }}</ion-label>
                     <ion-select [(ngModel)]="school.countryId" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
-                        <ion-option *ngFor="let option of masters.CountryMaster" [value]="option.id">{{ option.name }}</ion-option>
+                        <ion-option *ngFor="let option of masters.CountryMaster" [value]="option.id" disabled ="{{formDisabled}}">{{ option.name }}</ion-option>
                     </ion-select>
                 </ion-item>
             </ion-col>
@@ -111,7 +111,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Landmark' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.landMark" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.landMark" class="form-controll" disabled ="{{formDisabled}}" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -123,7 +123,7 @@
 
                     <!-- <ion-label floating>{{'GeoLocation' }}</ion-label>
                     <ion-input type="text" [(ngModel)]="school.geoCoordinate" required></ion-input> -->
-                    <button item-right clear (click)="getLocation()">
+                    <button item-right clear (click)="getLocation()" disabled ="{{formDisabled}}">
                         <ion-icon tappable name="navigate" item-right></ion-icon>
                     </button>
                 </ion-item>
@@ -133,7 +133,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Priciple Name' }}</ion-label>
-                    <ion-input type="text" [(ngModel)]="school.principalName" class="form-controll" required></ion-input>
+                    <ion-input type="text" [(ngModel)]="school.principalName" disabled ="{{formDisabled}}" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -141,7 +141,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Principle Phone Number' }}</ion-label>
-                    <ion-input type="tel" [(ngModel)]="school.phoneNumber" maxlength="11" class="form-controll" required></ion-input>
+                    <ion-input type="tel" [(ngModel)]="school.phoneNumber" disabled ="{{formDisabled}}" maxlength="11" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -150,7 +150,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'School Phone Number' }}</ion-label>
-                    <ion-input type="tel" [(ngModel)]="school.schoolPhoneNumber" maxlength="11" class="form-controll" required></ion-input>
+                    <ion-input type="tel" [(ngModel)]="school.schoolPhoneNumber" disabled ="{{formDisabled}}" maxlength="11" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -158,7 +158,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Total Population' }}</ion-label>
-                    <ion-input type="number" [(ngModel)]="school.totalPopulation" class="form-controll" required></ion-input>
+                    <ion-input type="number" [(ngModel)]="school.totalPopulation" disabled ="{{formDisabled}}" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -166,7 +166,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Total Education Level' }}</ion-label>
-                    <ion-select [(ngModel)]="school.totalEducationlevel" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
+                    <ion-select [(ngModel)]="school.totalEducationlevel" disabled ="{{formDisabled}}" cancelText="{{ 'CANCEL'  }}" okText="{{ 'OK'  }}">
                         <ion-option *ngFor="let option of masters.EducationLevel" [value]="option.name">{{ option.name }}</ion-option>
                     </ion-select>
                 </ion-item>
@@ -176,11 +176,11 @@
             <ion-col>
                 <ion-item>
                     <ion-label floating>{{'Nursary To Primary Population' }}</ion-label>
-                    <ion-input type="number" [(ngModel)]="school.nursaryToPrimary3Population" OnlyNumber="true" class="form-controll" required></ion-input>
+                    <ion-input type="number" [(ngModel)]="school.nursaryToPrimary3Population" disabled ="{{formDisabled}}" OnlyNumber="true" class="form-controll" required></ion-input>
                 </ion-item>
             </ion-col>
         </ion-row>
     </section>
-    <button class="btnSave" (click)="saveConfirm()" ion-button full type="button">{{buttonText}}</button>
+    <button class="btnSave" (click)="saveConfirm()" ion-button full type="button" disabled ="{{buttonDisabled}}">{{buttonText}}</button>
     <!-- <button class="btnSave" (click)="goToList()" ion-button full type="button">{{'Cancel'}}</button> -->
 </ion-content>

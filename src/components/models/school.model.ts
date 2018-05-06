@@ -1,5 +1,6 @@
 export interface School {
-    schoolId?: number;
+    id?: number;
+    schoolTempId?: number;
     schoolName?: string;
     houseNumber?: string;
     schoolImageName?: string;
@@ -29,4 +30,7 @@ export interface School {
     signageStatus?: string;
     ifBad?: string;
     classRoomCorex?: string;
+    source?: 'm' | 'mu' | 'w';
+    approved?: boolean;
+    status?: 'Active' | 'Inactive';
 }

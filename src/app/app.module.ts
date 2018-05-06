@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 // Angular components ends
@@ -39,6 +40,7 @@ import { CounterInput } from '../components/counter-input/counter-input';
 import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
 import { OnlyNumberDirective } from '../components/directives/only-number.directive';
+import { WebService } from '../components/webservice/web-service';
 //custom components ends
 
 @NgModule({
@@ -66,6 +68,7 @@ import { OnlyNumberDirective } from '../components/directives/only-number.direct
     AngularFontAwesomeModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    HttpClientModule,
     IonicStorageModule.forRoot(),
     IonicPageModule.forChild(List2Page),
   ],
@@ -95,6 +98,7 @@ import { OnlyNumberDirective } from '../components/directives/only-number.direct
     FileTransferObject,
     File,
     Camera,
+    WebService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

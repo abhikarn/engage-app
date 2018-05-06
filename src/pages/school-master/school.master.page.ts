@@ -11,6 +11,7 @@ import { List2Page } from '../list-2/list-2';
 import { MenuPage } from '../menu/menu';
 import { Masters } from '../../components/constants/master.constant';
 import { School } from '../../components/models/school.model';
+import { WebService } from '../../components/webservice/web-service';
 import { SchoolProvider } from './school.master.page-provider';
 
 @Component({
@@ -19,10 +20,12 @@ import { SchoolProvider } from './school.master.page-provider';
 })
 export class SchoolMasterPage implements OnInit {
     editMode = false;
-    school: School = { schoolName: '' };
+    school: School = { schoolName: '', source: 'm', status: 'Active', approved: false };
     masters = Masters;
     alive = true;
     loading: any;
+    formDisabled = false;
+    buttonDisabled = null;
     buttonText = 'Save';
     constructor(public navCtrl: NavController,
         private geolocation: Geolocation,
@@ -30,15 +33,24 @@ export class SchoolMasterPage implements OnInit {
         public loadingCtrl: LoadingController,
         private navParams: NavParams,
         private schoolProvider: SchoolProvider,
-        private alertCtrl: AlertController) {
+        private alertCtrl: AlertController,
+        private webService: WebService
+    ) {
 
         this.loading = this.loadingCtrl.create();
     }
 
     ngOnInit() {
+
+    }
+
+    ionViewDidLoad() {
         const school = this.navParams.get('param');
         if (!!school) {
             this.school = school;
+            // this.school.schoolTempId = !this.school.schoolTempId ?
+            this.formDisabled = !!this.school.id;
+            this.buttonDisabled = this.formDisabled ? true : null;
             this.editMode = true;
             this.buttonText = 'Update';
         }
@@ -90,14 +102,25 @@ export class SchoolMasterPage implements OnInit {
         if (this.editMode) {
             this.schoolProvider.updateSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.navCtrl.push(MenuPage);
+                this.messageBox('School updated successfully !!!');
             });
         } else {
             this.schoolProvider.saveSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.navCtrl.setRoot(MenuPage);
+                this.messageBox('School saved successfully !!!');
             });
         }
+    }
+
+    saveSchoolAsync() {
+        this.loading.present();
+        this.webService.saveSchoolMaster(this.school).subscribe((response: School) => {
+            this.loading.dismiss();
+            this.school = response;
+            const message = this.editMode ? 'School saved successfully !!!' :
+                'School updated successfully !!!';
+            this.messageBox(message);
+        });
     }
 
     goToList() {
@@ -120,6 +143,22 @@ export class SchoolMasterPage implements OnInit {
                     text: this.editMode ? 'Update' : 'Save',
                     handler: () => {
                         this.saveSchool();
+                    }
+                }
+            ]
+        });
+        alert.present();
+    }
+
+    private messageBox(message: string) {
+        let alert = this.alertCtrl.create({
+            title: 'Success',
+            message: message,
+            buttons: [
+                {
+                    text: 'OK',
+                    handler: () => {
+                        this.navCtrl.push(MenuPage);
                     }
                 }
             ]

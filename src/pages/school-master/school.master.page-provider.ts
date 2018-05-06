@@ -6,12 +6,11 @@ import { provideStorage } from '@ionic/storage/dist/storage';
 const STORAGE_KEY = 'school_data';
 @Injectable()
 export class SchoolProvider {
-    schools: School[] = [];
+    private schools: School[] = [];
     constructor(public storage: Storage) {
-        this.createDB();
     }
 
-    private createDB() {
+    public createDB() {
         this.storage.get(STORAGE_KEY).then(data => {
             if (!data) {
                 this.storage.set(STORAGE_KEY, this.schools);
@@ -19,14 +18,19 @@ export class SchoolProvider {
         });
     }
 
-    public getAllSchool() {
+    public updateDB(schools: School[]) {
+        this.storage.remove(STORAGE_KEY);
+        this.storage.set(STORAGE_KEY, schools);
+    }
+
+    public getAllSchool(): Promise<School[]> {
         return this.storage.get(STORAGE_KEY);
     }
 
-    public getSchool(schoolId: number) {
+    public getSchool(schoolTempId: number) {
         return new Promise<School>((resolve) => {
             this.storage.get(STORAGE_KEY).then(schools => {
-                resolve(schools.find(item => item.schoolId === schoolId));
+                resolve(schools.find(item => item.schoolTempId === schoolTempId));
             });
         });
     }
@@ -35,10 +39,10 @@ export class SchoolProvider {
         return new Promise<number>((resolve) => {
             this.getAllSchool().then(data => {
                 const schools: School[] = data;
-                school.schoolId = schools.length + 1;
+                school.schoolTempId = schools.length + 1;
                 schools.push(school);
                 this.storage.set(STORAGE_KEY, schools);
-                resolve(school.schoolId);
+                resolve(school.schoolTempId);
             });
         });
     }
@@ -48,14 +52,25 @@ export class SchoolProvider {
             this.getAllSchool().then(data => {
                 let schools: School[] = data;
                 this.storage.remove(STORAGE_KEY);
-                const index = schools.findIndex(item => item.schoolId === school.schoolId);
+                const index = schools.findIndex(item => item.schoolTempId === school.schoolTempId);
                 if (index > -1) {
                     schools[index] = school;
                 }
                 this.storage.set(STORAGE_KEY, schools);
-                resolve(school.schoolId);
+                resolve(school.schoolTempId);
+            });
+        });
+    }
+
+    removeSchool(schoolId: number) {
+        return new Promise<number>((resolve) => {
+            this.getAllSchool().then(data => {
+                let schools: School[] = data;
+                this.storage.remove(STORAGE_KEY);
+                const schoolFilter = schools.filter(item => item.schoolTempId !== schoolId);
+                this.storage.set(STORAGE_KEY, schoolFilter);
+                resolve(schoolId);
             });
         });
     }
 }
-

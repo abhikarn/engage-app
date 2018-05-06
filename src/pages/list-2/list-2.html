@@ -14,18 +14,18 @@
     </button> -->
     <ion-list>
       <!-- <button class="list-item" ion-item > -->
-      <ion-row no-padding class="list-item content-row one-line" *ngFor="let item of list2.items">
+      <ion-row no-padding class="list-item content-row one-line" *ngFor="let item of list2">
         <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
-        <!-- <ion-col no-padding width-18 class="item-avatar">
-            <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.schoolImageName"></preload-image>
-          </ion-col> -->
-        <ion-col no-padding width-80 class="item-content" (click)="checkClick(item)">
+        <ion-col no-padding width-18 class="item-avatar" *ngIf="!!item.schoolImageName">
+          <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.schoolImageName"></preload-image>
+        </ion-col>
+        <ion-col no-padding width-70 class="item-content" (click)="checkClick(item)">
           <h3 class="item-title">{{item.schoolName}} ({{item.schoolType}})</h3>
           <p class="item-description">
             <span> {{item.houseNumber}},{{item.street}},{{item.area}}</span>
           </p>
         </ion-col>
-        <ion-col no-padding width-20 class="item-icon">
+        <ion-col no-padding width-12 class="item-icon">
           <button ion-button medium style="background-color: #fc0704 !important;padding-right: 5px;" (click)="goToSchool(item)">
             Detail
             <!-- <ion-icon name="detail"></ion-icon> -->
