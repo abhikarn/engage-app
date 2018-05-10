@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { School } from '../../components/models/school.model';
 import { provideStorage } from '@ionic/storage/dist/storage';
-
+import * as _ from 'lodash';
 const STORAGE_KEY = 'school_data';
 @Injectable()
 export class SchoolProvider {
@@ -39,7 +39,7 @@ export class SchoolProvider {
         return new Promise<number>((resolve) => {
             this.getAllSchool().then(data => {
                 const schools: School[] = data;
-                school.schoolTempId = schools.length + 1;
+                school.schoolTempId = _.random(1, 1000);
                 schools.push(school);
                 this.storage.set(STORAGE_KEY, schools);
                 resolve(school.schoolTempId);
@@ -70,6 +70,18 @@ export class SchoolProvider {
                 const schoolFilter = schools.filter(item => item.schoolTempId !== schoolId);
                 this.storage.set(STORAGE_KEY, schoolFilter);
                 resolve(schoolId);
+            });
+        });
+    }
+
+    removeBulkSchool(schoolsR: School[]) {
+        return new Promise<boolean>((resolve) => {
+            this.getAllSchool().then(data => {
+                let schools: School[] = data;
+                this.storage.remove(STORAGE_KEY);
+                const schoolsUnique = _.uniqBy([...schools, ...schoolsR], 'schoolTempId');
+                this.storage.set(STORAGE_KEY, schoolsUnique);
+                resolve(true);
             });
         });
     }

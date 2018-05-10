@@ -82,6 +82,7 @@ export class SchoolMasterPage implements OnInit {
             this.school.schoolLatitudeCoordinate = `${pos.coords.latitude}`;
             this.school.schoolLongitudeCoordinate = `${pos.coords.longitude}`;
         });
+
         // let watch = this.geolocation.getCurrentPosition();
         // watch.takeWhile(() => this.alive).subscribe((data) => {
         //     // data can be a set of coordinates, or an error (if an error occurred).
@@ -100,14 +101,17 @@ export class SchoolMasterPage implements OnInit {
     saveSchool() {
         this.loading.present();
         if (this.editMode) {
+            this.school.stateId = 15;
             this.schoolProvider.updateSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.messageBox('School updated successfully !!!');
+                this.navCtrl.push(MenuPage);
+                // this.messageBox('School updated successfully !!!');
             });
         } else {
             this.schoolProvider.saveSchool(this.school).then((id) => {
                 this.loading.dismiss();
-                this.messageBox('School saved successfully !!!');
+                this.navCtrl.push(MenuPage);
+                // this.messageBox('School saved successfully !!!');
             });
         }
     }

@@ -6,6 +6,7 @@ import { List2Page } from '../list-2/list-2';
 import { SchoolMasterPage } from '../school-master/school.master.page';
 import { SchoolProvider } from '../school-master/school.master.page-provider';
 // import { TabsPage } from '../tabs/tabs';
+import { Storage } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +20,7 @@ export class MenuPage {
     @ViewChild(Nav) nav: Nav;
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
         public menu: MenuController, public app: App,
-        private schoolProvider: SchoolProvider, public events: Events) {
+        private schoolProvider: SchoolProvider, public events: Events, private storage: Storage) {
         this.schoolProvider.createDB();
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
@@ -42,20 +43,26 @@ export class MenuPage {
         this.menu.close();
         // navigate to the new page if it is not the current page
         if (!!page.component) {
-            this.app.getRootNav().push(page.component);
+            this.nav.push(page.component);
         } else if (page.title === 'Upload') {
+            this.storage.set('actionMenu', true);
+
             this.syncSchool();
         } else if (page.title === 'Download') {
+            this.storage.set('actionMenu', true);
+
             this.viewSchool();
         }
     }
 
     syncSchool() {
+        // alert('upload-menu');
         this.events.publish('sync:school', 'upload');
         // this.nav.setRoot(List2Page);
     }
 
     viewSchool() {
+        // alert('download-menu');
         this.events.publish('sync:school', 'download');
         // this.nav.setRoot(List2Page);
     }
