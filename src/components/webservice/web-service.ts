@@ -8,8 +8,8 @@ import { School } from '../models/school.model';
 @Injectable()
 export class WebService {
 
-    private apiUrl = 'http://fabkitstudio.com/webapi/';
-    // private apiUrl = 'http://localhost:50717/webapi/';
+    // private apiUrl = 'http://fabkitstudio.com/webapi/';
+    private apiUrl = 'http://localhost:50717/webapi/';
     private clientId: 'fe57dfd72c4e44a092dfbd4a2124bb4c';
     // Resolve HTTP using the constructor
     constructor(private httpClient: HttpClient, private http: Http) {

@@ -1,5 +1,6 @@
 // Common list styles can be found in "./common.styles/layouts/lists"
 list-2-page {
+    @import "../../../node_modules/font-awesome/scss/font-awesome";
 	ion-toolbar {
 		@include header-styles(color($colors, header, base), color($colors, header, contrast));
 		background-color: color($colors, header, base);
@@ -13,14 +14,14 @@ list-2-page {
 
 		.list-mini
 		{
-			@include layout-list-styles($theme-color-2, $white-d);
+			@include layout-list-styles($theme-color-5, $white-d);
 
 			ion-list {
 				.list-item
 				{
 					.content-row
 					{
-						.item-title{
+						.item-title {
 							overflow: hidden;
 							text-overflow: ellipsis;
 							white-space: nowrap;
@@ -41,5 +42,43 @@ list-2-page {
 				}
 			}
 		}
+
+		// .list-big
+		// {
+		// 	// @include layout-list-styles($theme-color-2, $white-d);
+
+		// 	ion-list {
+		// 		.list-item
+		// 		{
+					
+		// 			.content-row
+		// 			{
+		// 				align-items: center;
+		// 			}
+
+		// 			.item-content
+		// 			{
+		// 				align-content: stretch;
+		// 			  display: flex;
+		// 			  flex-wrap: wrap;
+		// 			  align-self: stretch;
+
+		// 				.item-title
+		// 				{
+		// 					margin-bottom: 8px;
+		// 					overflow: hidden;
+		// 					text-overflow: ellipsis;
+		// 					white-space: nowrap;
+		// 				}
+
+		// 				.item-description
+		// 				{
+		// 					@include multi-line-ellipsis($list-big-description-font-size);
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
+		
 	}
 }

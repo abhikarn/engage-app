@@ -41,6 +41,7 @@ import { Rating } from '../components/rating/rating';
 import { GoogleMap } from '../components/google-map/google-map';
 import { OnlyNumberDirective } from '../components/directives/only-number.directive';
 import { WebService } from '../components/webservice/web-service';
+import { ShareService } from '../components/webservice/shared.service';
 //custom components ends
 
 @NgModule({
@@ -99,6 +100,7 @@ import { WebService } from '../components/webservice/web-service';
     File,
     Camera,
     WebService,
+    ShareService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

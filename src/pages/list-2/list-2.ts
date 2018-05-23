@@ -1,8 +1,10 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import {
   NavController, LoadingController, AlertController,
-  Platform, MenuController, Nav, App, ViewController, Events
+  Platform, MenuController, Nav, App, ViewController, Events,
+  NavParams
 } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/takeWhile';
 import { List2Model } from './list-2.model';
@@ -11,8 +13,8 @@ import { SchoolMasterPage } from '../school-master/school.master.page';
 import { SchoolProvider } from '../school-master/school.master.page-provider';
 import { List1Service } from '../list-1/list-1.service';
 import { WebService } from '../../components/webservice/web-service';
+import { ShareService } from '../../components/webservice/shared.service';
 import { School } from '../../components/models/school.model';
-import { Storage } from '@ionic/storage';
 import { MenuPage } from '../menu/menu';
 
 @Component({
@@ -20,11 +22,12 @@ import { MenuPage } from '../menu/menu';
   templateUrl: 'list-2.html'
 })
 export class List2Page implements OnInit, OnDestroy {
-  list2: School[];
+  list2: School[] = [];
   loading: any;
   alive = true;
   eventSubscription: any;
   pages: Array<{ title: any, icon: string, component: any }>;
+  private handler: (type: string) => void;
   constructor(
     private nav: NavController,
     private appCtrl: App,
@@ -37,35 +40,47 @@ export class List2Page implements OnInit, OnDestroy {
     private webService: WebService,
     private events: Events,
     private alertCtrl: AlertController,
-    private storage: Storage
+    private storage: Storage,
+    private navParams: NavParams,
+    private shareService: ShareService
   ) {
-
     this.pages = [
       { title: 'Add School', icon: 'home', component: SchoolMasterPage }
     ];
-    this.subscribeEvents();
   }
 
-
-  private subscribeEvents() {
-    this.events.subscribe('sync:school', (type) => {
-      this.loading = this.loadingCtrl.create();
-      if (type === 'upload') {
-        // alert(type);
-        this.uploadSchoolAsync();
-      } else if (type === 'download') {
-        // alert(type);
-        this.downloadSchoolAsync();
-      }
-      // this.subscribeEvents();
-    });
-  }
   ngOnInit() {
 
   }
 
+  onPageWillEnter() {
+    alert('back');
+    // You can execute what you want here and it will be executed right before you enter the view
+  }
+
+  subsCribe() {
+    if (this.shareService.getSubscribe()) {
+      this.handler = (type) => {
+        if (type === 'upload') {
+          this.uploadSchoolAsync();
+        } else if (type === 'download') {
+          this.downloadSchoolAsync();
+        }
+      };
+      this.events.subscribe('sync:school', this.handler);
+    }
+  }
+
   ngOnDestroy() {
-    this.events.unsubscribe('sync:school', null);
+  }
+
+  ionViewDidLeave() {
+    this.events.unsubscribe('sync:school', this.handler);
+    this.handler = null;
+  }
+
+  ionViewWillEnter() {
+    this.subsCribe();
   }
 
   ionViewDidLoad() {
@@ -80,13 +95,16 @@ export class List2Page implements OnInit, OnDestroy {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     this.schoolProvider.getAllSchool().then(school => {
-      this.list2 = school;
+      console.log('school');
+      console.log(school);
+      this.list2 = school || [];
       this.loading.dismiss();
     });
   }
 
   private downloadSchoolAsync(noloader?: boolean) {
     if (!noloader) {
+      this.loading = this.loadingCtrl.create();
       this.loading.present();
     }
     this.webService.getSchoolAll().subscribe((schoolasync: School[]) => {
@@ -94,10 +112,6 @@ export class List2Page implements OnInit, OnDestroy {
       this.list2 = this.removeDuplicates(this.list2, 'id');
       this.schoolProvider.updateDB(this.list2);
       this.loading.dismiss();
-      this.appCtrl.getRootNav().setRoot(MenuPage);
-      window.location.reload();
-      // this.storage.set('actionMenu', false);
-      // this.subscribeEvents();
     });
   }
 
@@ -121,8 +135,10 @@ export class List2Page implements OnInit, OnDestroy {
   // }
 
   private uploadSchoolAsync() {
-    //this.loading.present();
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
     const schoolFilter = this.list2.filter((item) => !item.id);
+    console.log(this.list2);
     if (!!schoolFilter && schoolFilter.length > 0) {
       this.webService.bulkUploadSchoolMaster(schoolFilter).subscribe((response) => {
         this.schoolProvider.removeBulkSchool(schoolFilter).then((r) => {
@@ -132,7 +148,7 @@ export class List2Page implements OnInit, OnDestroy {
         });
       });
     } else {
-      //  this.loading.dismiss();
+      this.loading.dismiss();
       this.messageBox('No schools available for upload.');
     }
   }
@@ -166,5 +182,18 @@ export class List2Page implements OnInit, OnDestroy {
       return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
   }
+
+  removeItem(item1) {
+    if (!!item1.schoolTempId && item1.schoolTempId > 0) {
+      this.schoolProvider.removeSchool(item1.schoolTempId).then((id) => {
+        this.list2 = this.list2.filter((item) => item.schoolTempId !== item1.schoolTempId);
+      });
+    }
+  }
+
+  editItem() {
+    alert('edit');
+  }
+
 }
 

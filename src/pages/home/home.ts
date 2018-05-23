@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 
 import { List2Model } from '../list-2/list-2.model';
 import { List2Page } from '../list-2/list-2';
+import { List1Page } from '../list-1/list-1';
 import { List2Service } from '../list-2/list-2.service';
 import { SchoolMasterPage } from '../school-master/school.master.page';
 import { MenuPage } from '../menu/menu';

@@ -5,6 +5,17 @@
         </ion-toolbar>
     </ion-header>
     <ion-content class="menu-content">
+        <ion-card>
+            <ion-item>
+                <ion-avatar item-start>
+                    <img src="assets/images/feed/500x333Waterpolo.png" style="height: 100px; width: 100px;">
+                </ion-avatar>
+                <h2>Srikant Panigrahy</h2>
+                <p>November 5, 1985</p>
+                <p>Last Sync: {{syncDate}}</p>
+            </ion-item>
+
+        </ion-card>
         <ion-list class="menu-list">
             <button ion-item *ngFor="let page of pages" (click)="openPage(page)">
                 <ion-icon *ngIf="page.icon" name="{{page.icon}}" item-left></ion-icon>

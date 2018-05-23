@@ -12,6 +12,7 @@ import { MenuPage } from '../menu/menu';
 import { Masters } from '../../components/constants/master.constant';
 import { School } from '../../components/models/school.model';
 import { WebService } from '../../components/webservice/web-service';
+import { ShareService } from '../../components/webservice/shared.service';
 import { SchoolProvider } from './school.master.page-provider';
 
 @Component({
@@ -34,7 +35,8 @@ export class SchoolMasterPage implements OnInit {
         private navParams: NavParams,
         private schoolProvider: SchoolProvider,
         private alertCtrl: AlertController,
-        private webService: WebService
+        private webService: WebService,
+        private shareService: ShareService
     ) {
 
         this.loading = this.loadingCtrl.create();
@@ -63,7 +65,8 @@ export class SchoolMasterPage implements OnInit {
             sourceType: this.camera.PictureSourceType.CAMERA,
             targetWidth: 300,
             targetHeight: 300,
-            saveToPhotoAlbum: true
+            saveToPhotoAlbum: true,
+            correctOrientation: true
         }
 
         this.camera.getPicture(options).then((imageData) => {
@@ -104,12 +107,14 @@ export class SchoolMasterPage implements OnInit {
             this.school.stateId = 15;
             this.schoolProvider.updateSchool(this.school).then((id) => {
                 this.loading.dismiss();
+                this.shareService.setSubscribe(true);
                 this.navCtrl.push(MenuPage);
                 // this.messageBox('School updated successfully !!!');
             });
         } else {
             this.schoolProvider.saveSchool(this.school).then((id) => {
                 this.loading.dismiss();
+                this.shareService.setSubscribe(true);
                 this.navCtrl.push(MenuPage);
                 // this.messageBox('School saved successfully !!!');
             });

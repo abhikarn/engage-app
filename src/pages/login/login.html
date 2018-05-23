@@ -1,27 +1,59 @@
-<ion-header class="login-header auth-header">
+<ion-header>
   <ion-navbar>
-    <!-- <ion-title>{{'SIGN_IN'}}</ion-title> -->
+    <!-- <ion-title>{{'Login'}}</ion-title> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content class="login-content auth-content">
-  <form class="login-form auth-form" [formGroup]="login" (ngSubmit)="doLogin()">
-    <ion-item>
-      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
-    </ion-item>
-    <show-hide-container>
-      <ion-item>
-        <ion-input type="password" placeholder="Password" formControlName="password" show-hide-input></ion-input>
-      </ion-item>
-    </show-hide-container>
-    <button ion-button block class="auth-action-button login-button" type="submit" [disabled]="!login.valid">{{'LOG_IN'}}</button>
-  </form>
-  <!-- <ion-row class="alt-options">
-    <ion-col no-padding width-50>
-      <button ion-button block clear class="forgot-button" (click)="goToForgotPassword()">{{'FORGOT_PASSWORD?'}}</button>
-    </ion-col>
-    <ion-col no-padding width-50>
-      <button ion-button block clear class="signup-button" (click)="goToSignup()">{{'SIGN_UP!' }}</button>
-    </ion-col>
-  </ion-row> -->
+<ion-content>
+  <div class="wrapper-container">
+    <div class="col-12">
+      <div class="text-container">
+        <div class="row justify-content-md-center">
+          <div class="col-11" style="width: 80%;margin: 0px auto;">
+            <div class="login-container">
+              <div class="login-header">
+                <span>EN-GAGE</span> CONNECT
+              </div>
+              <div class="login-body">
+                <!-- <form> -->
+                  <div class="input-fields">
+                    <input type="text" class="form-field"  [(ngModel)] ="userName" placeholder="Username" name="username" />
+                    <div class="error-field"></div>
+                  </div>
+                  <div class="input-fields">
+                    <input type="password" class="form-field" [(ngModel)] ="password" placeholder="Password" name="password" />
+                    <div class="error-field"></div>
+                  </div>
+                  <div class="input-fields" *ngIf="false">
+                    <div class="row">
+                      <div class="col-4" *ngIf="false">
+                        <div class="toggle-switch">
+                          <input type="checkbox" id="switch" />
+                          <label for="switch"></label>
+                        </div>
+                      </div>
+                      <div class="col-8 text-right">
+                        <div class="cb-wrap">
+                          <input type="checkbox" id="forgot" />
+                          <label class="box" for="forgot"></label>
+                          <a href="">Forgot Password?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row"></div>
+                  <div class="input-fields text-center">
+                    <button type="submit" class="main-btn" (click) = "doLogin()">Login</button>
+                    <div>
+                      <a href="">Forgot Password?</a>
+                    </div>
+                  </div>
+                <!-- </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>

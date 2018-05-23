@@ -6,6 +6,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { MenuPage } from '../menu/menu';
 import { List2Page } from '../list-2/list-2';
 import { List1Page } from '../list-1/list-1';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'login-page',
@@ -13,13 +14,15 @@ import { List1Page } from '../list-1/list-1';
 })
 export class LoginPage {
   login: FormGroup;
+  userName: string = '';
+  password: string = '';
   main_page: { component: any };
   loading: any;
   constructor(
     private navController: NavController,
     public loadingCtrl: LoadingController
   ) {
-    this.main_page = { component: List1Page };
+    this.main_page = { component: HomePage };
     // this.navCtrl = this.app.getActiveNav();
     this.login = new FormGroup({
       email: new FormControl('', Validators.required),
@@ -31,7 +34,7 @@ export class LoginPage {
   //   return this.app._roo();
   // }
   doLogin() {
-    if (this.login.get('email').value === 'a' && this.login.get('password').value === 'a') {
+    if (this.userName === 'a' && this.password === 'a') {
       this.navController.setRoot(this.main_page.component);
     } else {
       alert('Invalid Username or pasword.');

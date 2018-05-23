@@ -13,26 +13,54 @@
       Add School
     </button> -->
     <ion-list scroll="true">
-      <!-- <button class="list-item" ion-item > -->
-      <ion-row no-padding class="list-item content-row one-line" *ngFor="let item of list2">
-        <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
-        <ion-col no-padding width-18 class="item-avatar" *ngIf="!!item.schoolImageName">
-          <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.schoolImageName"></preload-image>
-        </ion-col>
-        <ion-col no-padding width-70 class="item-content" (click)="checkClick(item)">
-          <h3 class="item-title">{{item.schoolName}} ({{item.schoolType}})</h3>
-          <p class="item-description">
-            <span> {{item.houseNumber}},{{item.street}},{{item.area}}</span>
-          </p>
-        </ion-col>
-        <ion-col no-padding width-12 class="item-icon">
-          <button ion-button medium style="background-color: #fc0704 !important;padding-right: 5px;" (click)="goToSchool(item)">
-            Detail
-            <!-- <ion-icon name="detail"></ion-icon> -->
+      <ion-item-sliding *ngFor="let item of list2">
+        <ion-item no-padding>
+          <!-- <button class="list-item" ion-item > -->
+          <ion-row class="list-item content-row one-line">
+            <!-- You can limit the rows of the description by using the class one-line. If you remove it, all the content from the row will be shown -->
+            <!-- <ion-col width-25 class="item-avatar" *ngIf="true">
+              <preload-image class="avatar-image" [ratio]="{w:1, h:1}" [src]="item.schoolImageName"></preload-image>
+            </ion-col> -->
+            <ion-col class="item-content" (click)="checkClick(item)">
+              <h3 class="item-title" style="cursor: pointer;
+          font-weight: bold;
+           font-family:Verdana, Geneva, Tahoma, sans-serif">{{item.schoolName}} ({{item.schoolType}})</h3>
+              <p class="item-description">
+                <span> {{item.houseNumber}},{{item.street}},{{item.area}}</span>
+              </p>
+            </ion-col>
+            <!-- <ion-col no-padding width-5 class="item-icon">
+              <a (click)="goToSchool(item)" style="cursor: pointer;
+          font-weight: bolder;
+           font-family:Verdana, Geneva, Tahoma, sans-serif">
+
+                <ion-icon name="eye"></ion-icon>
+              </a>
+            </ion-col>
+            <ion-col no-padding width-7 class="item-icon">
+              <a (click)="goToSchool(item)" style="cursor: pointer;
+          font-weight: bolder;
+           font-family:Verdana, Geneva, Tahoma, sans-serif">
+
+                <ion-icon name="trash"> </ion-icon>
+
+              </a>
+            </ion-col> -->
+          </ion-row>
+        </ion-item>
+        <ion-item-options>
+          <button primary (click)="goToSchool(item)" style="background-color:black">
+           <!-- Edit -->
+           <!-- <i class="fa fa-edit" style="font-size:24px;"></i> -->
+
+            <ion-icon name="unlock" style="zoom:2.0; color: white"></ion-icon>
           </button>
-          <!-- <ion-icon name="arrow-forward"></ion-icon> -->
-        </ion-col>
-      </ion-row>
+          <button danger (click)="removeItem(item)" style="background-color: black">
+           <!-- Delete -->
+            <ion-icon name="trash" style="zoom:2.0; color: white"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
       <!-- </button> -->
     </ion-list>
   </div>
