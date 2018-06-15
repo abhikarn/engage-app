@@ -75,11 +75,13 @@ export class List2Page implements OnInit, OnDestroy {
   }
 
   ionViewDidLeave() {
+    // alert('leave');
     this.events.unsubscribe('sync:school', this.handler);
     this.handler = null;
   }
 
   ionViewWillEnter() {
+    // alert('enter');
     this.subsCribe();
   }
 
@@ -142,8 +144,13 @@ export class List2Page implements OnInit, OnDestroy {
     if (!!schoolFilter && schoolFilter.length > 0) {
       this.webService.bulkUploadSchoolMaster(schoolFilter).subscribe((response) => {
         this.schoolProvider.removeBulkSchool(schoolFilter).then((r) => {
-          this.list2 = [];
-          this.downloadSchoolAsync(true);
+          console.log(response);
+          this.list2 = this.list2.filter((item) => !!item.id) || [];
+          this.list2.push(...response);
+          this.list2 = this.removeDuplicates(this.list2, 'id');
+          this.schoolProvider.updateDB(this.list2);
+          this.loading.dismiss();
+          // this.downloadSchoolAsync(true);
           this.messageBox('All schools uploaded for approval.');
         });
       });
@@ -184,9 +191,12 @@ export class List2Page implements OnInit, OnDestroy {
   }
 
   removeItem(item1) {
+    this.events.unsubscribe('sync:school', this.handler);
+    this.handler = null;
     if (!!item1.schoolTempId && item1.schoolTempId > 0) {
       this.schoolProvider.removeSchool(item1.schoolTempId).then((id) => {
         this.list2 = this.list2.filter((item) => item.schoolTempId !== item1.schoolTempId);
+        this.subsCribe();
       });
     }
   }
