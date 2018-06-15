@@ -108,14 +108,14 @@ export class SchoolMasterPage implements OnInit {
             this.schoolProvider.updateSchool(this.school).then((id) => {
                 this.loading.dismiss();
                 this.shareService.setSubscribe(true);
-                this.navCtrl.push(MenuPage);
+                this.navCtrl.push(List2Page);
                 // this.messageBox('School updated successfully !!!');
             });
         } else {
             this.schoolProvider.saveSchool(this.school).then((id) => {
                 this.loading.dismiss();
                 this.shareService.setSubscribe(true);
-                this.navCtrl.push(MenuPage);
+                this.navCtrl.push(List2Page);
                 // this.messageBox('School saved successfully !!!');
             });
         }

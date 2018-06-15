@@ -40,14 +40,19 @@ export class WebService {
         return new HttpHeaders().set('ClientId', 'fe57dfd72c4e44a092dfbd4a2124bb4c');
     }
 
+    private postHeadersClient() {
+        return new HttpHeaders().set('ClientId', 'fe57dfd72c4e44a092dfbd4a2124bb4c').set('Content-Type', 'application/json');
+    }
+
     saveSchoolMaster(school: School): Observable<any> {
         const options: RequestOptions = new RequestOptions({ headers: this.postHeaders() });
         return this.http.post(`${this.apiUrl}SchoolMastersMobile`, school, options);
     }
 
-    bulkUploadSchoolMaster(schools: School[]): Observable<any> {
+    bulkUploadSchoolMaster(schools: School[]): Observable<School[]> {
         const options: RequestOptions = new RequestOptions({ headers: this.postHeaders() });
-        return this.http.post(`${this.apiUrl}SchoolMastersMobile`, schools, options);
+        return this.httpClient.post(`${this.apiUrl}SchoolMastersMobile`,
+            schools, { headers: this.postHeadersClient() }) as Observable<School[]>;
     }
 
     getSchoolAll(): Observable<any[]> {
