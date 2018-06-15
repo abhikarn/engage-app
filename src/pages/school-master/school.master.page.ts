@@ -70,7 +70,7 @@ export class SchoolMasterPage implements OnInit {
         }
 
         this.camera.getPicture(options).then((imageData) => {
-            this.school.schoolImageUri = imageData;
+            this.school.schoolImage = imageData;
             this.school.schoolImageName = normalizeURL(imageData);
         }, (err) => {
             console.log(err);

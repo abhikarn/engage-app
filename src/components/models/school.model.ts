@@ -4,7 +4,7 @@ export interface School {
     schoolName?: string;
     houseNumber?: string;
     schoolImageName?: string;
-    schoolImageUri?: any;
+    schoolImage?: any;
     street?: string;
     area?: string;
     lGA?: string;
