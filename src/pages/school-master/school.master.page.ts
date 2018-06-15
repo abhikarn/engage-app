@@ -50,6 +50,7 @@ export class SchoolMasterPage implements OnInit {
         const school = this.navParams.get('param');
         if (!!school) {
             this.school = school;
+            this.school.schoolImageName = !!this.school.schoolImage ? normalizeURL(this.school.schoolImage) : '';
             // this.school.schoolTempId = !this.school.schoolTempId ?
             this.formDisabled = !!this.school.id;
             this.buttonDisabled = this.formDisabled ? true : null;

@@ -17,11 +17,11 @@
               <div class="login-body">
                 <!-- <form> -->
                   <div class="input-fields">
-                    <input type="text" class="form-field"  [(ngModel)] ="userName" placeholder="Username" name="username" />
+                    <input type="text" class="form-field"  [(ngModel)] ="model.userName" placeholder="Username" name="username" />
                     <div class="error-field"></div>
                   </div>
                   <div class="input-fields">
-                    <input type="password" class="form-field" [(ngModel)] ="password" placeholder="Password" name="password" />
+                    <input type="password" class="form-field" [(ngModel)] ="model.userPassword" placeholder="Password" name="password" />
                     <div class="error-field"></div>
                   </div>
                   <div class="input-fields" *ngIf="false">
