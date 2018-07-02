@@ -62,4 +62,8 @@ export class WebService {
     getSchools(): Observable<School[]> {
         return this.httpClient.get(`${this.apiUrl}SchoolMastersMobile`, { headers: this.getHeaders() }) as Observable<School[]>;
     }
+
+    getStates(): Observable<any[]> {
+        return this.httpClient.get(`${this.apiUrl}StateMasters`, { headers: this.getHeaders() }) as Observable<any[]>;
+    }
 }

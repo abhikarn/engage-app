@@ -30,6 +30,7 @@ import { List2Service } from '../pages/list-2/list-2.service';
 import { List1Service } from '../pages/list-1/list-1.service';
 import { SchoolMasterPage } from '../pages/school-master/school.master.page';
 import { SchoolProvider } from '../pages/school-master/school.master.page-provider';
+import { SchoolMasterService } from '../pages/school-master/school.master.service';
 
 
 import { PreloadImage } from '../components/preload-image/preload-image';
@@ -103,6 +104,7 @@ import { AuthService } from '../components/webservice/auth.service';
     WebService,
     ShareService,
     AuthService,
+    SchoolMasterService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

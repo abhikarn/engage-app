@@ -1,0 +1,466 @@
+[
+    {
+        "id": 1,
+        "name": "ABUJA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 2,
+        "name": "BIDA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 3,
+        "name": "KEFFI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 4,
+        "name": "KONT",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 5,
+        "name": "LAFIA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 6,
+        "name": "MINNA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 7,
+        "name": "MOKWA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 8,
+        "name": "SULEJA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 9,
+        "name": "PHC",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 10,
+        "name": "ASABA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 11,
+        "name": "ONITSHA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 12,
+        "name": "OWERRI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 13,
+        "name": "AWKA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 14,
+        "name": "ABAKALIKI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 15,
+        "name": "ENUGU",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 16,
+        "name": "MAKURDI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 17,
+        "name": "OTUKPO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 18,
+        "name": "ABA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 19,
+        "name": "CALABAR",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 20,
+        "name": "UMUAHIA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 21,
+        "name": "UYO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 22,
+        "name": "ORON",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 23,
+        "name": "WARRI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 24,
+        "name": "YENEGOA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 25,
+        "name": "LAGOS",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 26,
+        "name": "IKEJA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 27,
+        "name": "BAUCHI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 28,
+        "name": "DAMA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 29,
+        "name": "DUTSE",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 30,
+        "name": "FUNTUA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 31,
+        "name": "GOMBE",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 32,
+        "name": "HADEJA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 33,
+        "name": "JALINGO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 34,
+        "name": "JOS",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 35,
+        "name": "KANO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 36,
+        "name": "KATSINA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 37,
+        "name": "MAIDUGURI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 38,
+        "name": "YOLA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 39,
+        "name": "GUSAU",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 40,
+        "name": "KADUNA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 41,
+        "name": "KEBBI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 42,
+        "name": "SOKOTO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 43,
+        "name": "ZARIA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 44,
+        "name": "FUNTUA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 45,
+        "name": "BENIN",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 46,
+        "name": "EDO UPCOUNTRY",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 47,
+        "name": "KOGI UPCOUNTRY",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 48,
+        "name": "LOKOJA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 49,
+        "name": "AUCHI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 50,
+        "name": "ABEOKUTA",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 51,
+        "name": "ADO EKITI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 52,
+        "name": "AKURE",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 53,
+        "name": "EKITI",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 54,
+        "name": "IBADAN",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 55,
+        "name": "IJEBU",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 56,
+        "name": "ILORIN",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 57,
+        "name": "OGBOMOSO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    },
+    {
+        "id": 58,
+        "name": "OSHOGBO",
+        "branchId": 0,
+        "branchName": null,
+        "created": "0001-01-01T00:00:00",
+        "updated": "0001-01-01T00:00:00"
+    }
+]

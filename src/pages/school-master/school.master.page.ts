@@ -14,6 +14,7 @@ import { School } from '../../components/models/school.model';
 import { WebService } from '../../components/webservice/web-service';
 import { ShareService } from '../../components/webservice/shared.service';
 import { SchoolProvider } from './school.master.page-provider';
+import { SchoolMasterService } from './school.master.service';
 
 @Component({
     selector: 'school-master',
@@ -36,7 +37,8 @@ export class SchoolMasterPage implements OnInit {
         private schoolProvider: SchoolProvider,
         private alertCtrl: AlertController,
         private webService: WebService,
-        private shareService: ShareService
+        private shareService: ShareService,
+        private schoolService: SchoolMasterService
     ) {
 
         this.loading = this.loadingCtrl.create();
@@ -47,16 +49,21 @@ export class SchoolMasterPage implements OnInit {
     }
 
     ionViewDidLoad() {
-        const school = this.navParams.get('param');
-        if (!!school) {
-            this.school = school;
-            this.school.schoolImageName = !!this.school.schoolImage ? normalizeURL(this.school.schoolImage) : '';
-            // this.school.schoolTempId = !this.school.schoolTempId ?
-            this.formDisabled = !!this.school.id;
-            this.buttonDisabled = this.formDisabled ? true : null;
-            this.editMode = true;
-            this.buttonText = 'Update';
-        }
+        this.loading.present();
+        this.schoolService.getState().subscribe(res => {
+            this.loading.dismiss();
+            this.masters.StateMaster = res;
+            const school = this.navParams.get('param');
+            if (!!school) {
+                this.school = school;
+                this.school.schoolImageName = !!this.school.schoolImage ? normalizeURL(this.school.schoolImage) : '';
+                // this.school.schoolTempId = !this.school.schoolTempId ?
+                this.formDisabled = !!this.school.id;
+                this.buttonDisabled = this.formDisabled ? true : null;
+                this.editMode = true;
+                this.buttonText = 'Update';
+            }
+        });
     }
 
     getImage() {
